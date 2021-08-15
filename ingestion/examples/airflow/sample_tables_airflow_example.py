@@ -15,7 +15,7 @@
 
 from datetime import timedelta
 from airflow import DAG
-
+import pathlib
 try:
     from airflow.operators.python import PythonOperator
 except ModuleNotFoundError:
@@ -23,6 +23,8 @@ except ModuleNotFoundError:
 
 from metadata.config.common import load_config_file
 from metadata.ingestion.api.workflow import Workflow
+from airflow.utils.dates import days_ago
+
 
 default_args = {
     "owner": "user_name",
@@ -35,23 +37,24 @@ default_args = {
 
 
 def metadata_ingestion_workflow():
-    config = load_config_file("examples/workflows/hive.json")
+    config = load_config_file(pathlib.Path("examples/workflows/hive.json"))
+    del config['cron']
     workflow = Workflow.create(config)
-    workflow.run()
+    workflow.execute()
     workflow.raise_from_status()
     workflow.print_status()
     workflow.stop()
 
 
 with DAG(
-    "hive_metadata_ingestion_workflow"
+    "hive_metadata_ingestion_workflow",
     default_args=default_args,
     description="An example DAG which runs a OpenMetadata ingestion workflow",
     schedule_interval=timedelta(days=1),
-    start_date=days_ago(1),
+    start_date=days_ago(2),
     catchup=False,
 ) as dag:
     ingest_task = PythonOperator(
-        task_id="ingest_using_recipe",
-        python_callable=metadata_ingestion_workflow(),
+        task_id="hive_metadata_ingest",
+        python_callable=metadata_ingestion_workflow,
     )
