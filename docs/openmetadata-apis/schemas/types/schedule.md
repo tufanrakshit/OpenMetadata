@@ -15,5 +15,3 @@ Type: `object`
   * Repeat frequency in ISO 8601 duration format. Example - 'P23DT23H'
   * $ref: [basic.json\#/definitions/duration](basic.md#types-definitions-in-this-schema)
 
-
-

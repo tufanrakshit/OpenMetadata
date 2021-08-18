@@ -57,7 +57,6 @@ metadata ingest -c ./examples/workflows/bigquery.json
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": ""
 }
-
 ```
 {% endcode %}
 
@@ -129,7 +128,6 @@ Add Optionally`pii` processor and `metadata-rest-tables` sink along with `metada
     "day_of_week": null
   }
 }
-
 ```
 {% endcode %}
 

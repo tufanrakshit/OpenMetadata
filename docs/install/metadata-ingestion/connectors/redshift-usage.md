@@ -121,7 +121,6 @@ Add optionally`query-parser` processor, `table-usage` stage and `metadata-usage`
     "day_of_week": null
   }
 }
-
 ```
 {% endcode %}
 

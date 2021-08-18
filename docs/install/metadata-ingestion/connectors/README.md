@@ -24,5 +24,3 @@ OpenMetadata supports connectors to some popular data sources. We will continue 
 
 {% page-ref page="snowflake-usage.md" %}
 
-
-

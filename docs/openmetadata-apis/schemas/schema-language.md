@@ -3,10 +3,10 @@
 We use [JSON schema](https://json-schema.org/) as the Schema Definition Language as it offers several advantages:
 
 * Easy to describe the structure and semantics of metadata models with readable documentation that is both human and machine consumable.
-* Common types can be developed once and can be reused as building blocks in other schemas and become the basis of vocabulary development.
-* Models can include structural validation, such as required/optional fields, default values, allowed values, regex that not only serve as automated testing and validation but also as documentation of API contract.
-* A rich set of tools are available that supports JSON schema support for generating code and validation from JSON schema in various languages, reducing the manual boilerplate coding.
-* Supports rich formats to convert schema types into native standard types during code generation, such as URI, date, and time.
+* Can develop common data types once and reuse as building blocks in other schemas.
+* Models can include structural validation, including: required and optional fields, default values, allowed values, regular expressions that not only serve as automated testing and validation but also as documentation of an API contract.
+* A rich set of existing tools for JSON schema, including support for generating code and validation from JSON schema in various languages, reducing the manual boilerplate coding.
+* Support for converting rich formats \(e.g., URI, date, time\) into native standard types during code generation.
 
 ## Reference
 
